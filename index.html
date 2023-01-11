@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>자판기</title>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean"
+    rel="stylesheet" />
+  <link href="css/swiper.min.css" rel="stylesheet" type="text/css" />
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="head_part">
+      <h1>앨범 자판기</h1>
+    </div>
+    <div class="display_part">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img class="display_img" id="popimg01" src="./img/album01.png" alt="허각 앨범" />
+            <div class="item" id="item01">
+              <span class="price">29900</span>원
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img class="display_img" id="popimg02" src="img/album02.png" alt="MC THE MAX 앨범" />
+            <div class="item" id="item02">
+              <span class="price">45000</span>원
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img class="display_img" id="popimg03" src="img/album03.png" alt="김민석 앨범" />
+            <div class="item" id="item03">
+              <span class="price">77500</span>원
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img class="display_img" id="popimg04" src="img/album04.png" alt="먼데이키즈 앨범" />
+            <div class="item" id="item04">
+              <span class="price">50200</span>원
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img class="display_img" id="popimg05" src="img/album05.png" alt="sg워너비 앨범" />
+            <div class="item" id="item05">
+              <span class="price">34700</span>원
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img class="display_img" id="popimg06" src="img/album06.png" alt="정동하 앨범" />
+            <div class="item" id="item06">
+              <span class="price">24000</span>원
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <div class="entrance_part">
+      <div class="entrance">
+        <h2>투입 금액 <span class="type">(단위 : 원)</span></h2>
+        <div class="btn_money">
+          <button id="100" value="100">100원</button>
+          <button id="500" value="500">500원</button>
+          <button id="1000" value="1000">1000원</button>
+          <button id="5000" value="5000">5000원</button>
+          <button id="10000" value="10000">10000원</button>
+          <button id="50000" value="50000">50000원</button>
+        </div>
+      </div>
+
+      <div class="entrance">
+        <h2>투입 금액 <span class="type">(단위 : $)</span></h2>
+        <div class="btn_money">
+          <button id="1cent" value="0.01">$ 0.01</button>
+          <button id="5cent" value="0.05">$ 0.05</button>
+          <button id="10cent" value="0.10">$ 0.10</button>
+          <button id="25cent" value="0.25">$ 0.25</button>
+          <button id="50cent" value="0.50">$ 0.50</button>
+          <button id="1dollar" value="1">$ 1</button>
+          <button id="2dollar" value="2">$ 2</button>
+          <button id="5dollar" value="5">$ 5</button>
+          <button id="10dollar" value="10">$ 10</button>
+          <button id="20dollar" value="20">$ 20</button>
+          <button id="50dollar" value="50">$ 50</button>
+          <button id="100dollar" value="100">$ 100</button>
+        </div>
+        <div class="show_amount">
+          <input id="dollarmoneycount" class="show_input" type="text" value="0" readonly />
+          <span class="dollar">Dollar</span>
+          <input id="moneycount" class="show_input" type="text" value="0" readonly />
+          <span class="won">원</span>
+          <button type="button" class="btn_return">반환</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="receive_part">
+      <div class="receive" id="receiveList">
+        <h2>받는 곳</h2>
+      </div>
+      <div class="return">
+        <div class="group-won">
+          <h2>반환된 금액</h2>
+          <table id="table">
+            <colgroup>
+              <col width="50%" />
+              <col width="50%" />
+            </colgroup>
+            <thead>
+              <th scope="col">단위</th>
+              <th scope="col">수량</th>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+          <div class="amount">
+            총 금액 : <span class="sum" id="returnTotal">0</span><span id="totalType"> 원</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="content">
+          <h3>앨범 소개</h3>
+          <img src="./img/album01.png" alt="허각 앨범" />
+          <div class="desc">
+            <div class="title">
+              [10주년 기념 스페셜 앨범]
+            </div>
+            - 2020년 12월 28일 발매<br />
+            데뷔 10주년을 맞이한 허각의 기념앨범. 기존에 발매했던 8곡을 리마스터하고 "Hello"와 "죽고 싶단 말 밖에"를 2020 버전으로 재녹음한 음원이 수록되었으며, 
+            오리지널 곡으로는 타이틀 "우린 어쩌다 헤어진걸까"와 직접 작사에 참여한 "Best view"가 있다.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="content">
+          <h3>앨범 소개</h3>
+          <img src="img/album02.png" alt="MC the Max 앨범" />
+          <div class="desc">
+            <div class="title">
+              'MC THE MAX' - &lt;처음처럼&gt;
+            </div>
+            ‘처음처럼’은 9집 앨범 [Circular]의 수록곡인 '사계(하루살이)'를 만들어 낸 AIMING(에이밍)팀이 심혈을 기울여 만든 곡으로, 
+            떠나가는 연인이 예전 처음 만났던 순간처럼 피어나듯, 다시 행복을 바라는 남자의 마음을 서정적으로 묘사한 이수의 가삿말이 더해지며 더욱 완성도를 높였다. 
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="content">
+          <h3>앨범 소개</h3>
+          <img src="img/album03.png" alt="임창정 앨범" />
+          <div class="desc">
+            <div class="title">
+              임창정 - 16집 &lt;힘든건 사랑이 아니다 &gt;
+            </div>
+            임창정 정규 16집 타이틀 곡 "힘든 건 사랑이 아니다"는 ‘임창정 16집 타이틀 선정단’의 직접 투표를 통한 압도적인 지지로 선정되었으며 
+            임창정 본인이 재녹음을 수없이 할 만큼 애착을 갖고 탄생시킨 곡이다. 타이틀 선정단이 노래를 듣자마자 눈물을 흘릴 만큼 애절하고 가슴 
+            아픈 사랑 이야기를 담고 있으며 "또다시 사랑" "내가 저지른 사랑" "하루도 그대를 사랑한 적이 없었다" 이후 귓가에 꽂히게 하는 중독성 강한 곡이다.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="content">
+          <h3>앨범 소개</h3>
+          <img src="img/album04.png" alt="먼데이키즈" />
+          <div class="desc">
+            <div class="title">
+              '먼데이 키즈' &lt;사랑 못해, 남들 쉽게 다 하는거&gt;
+            </div>
+            하이라이트마다 2옥타브 솔♯(G♯4)~2옥타브 라♯(A♯4)으로 도배되어 있고, 2옥타브 시(B4)로 꺾는 부분[67]까지 있는 데다가 후렴구의 길이도 상당히 긴 편이다. 
+            거기다 1절과 2절 사이의 간주가 2초밖에 없고, 마지막 후렴구에서 본격적으로 난이도가 올라가는데 2옥타브 라♯(A♯4)을 유지하면서 2옥타브 시(B4)를 찍었다가 
+            순식간에 저음으로 내려오며, 중간에 가성이 3옥타브 파♯(F♯5)까지 치솟고, 마지막의 '용기 내서 오늘 밤 너에게' 부분에서 2옥타브 시(B4)를 길게 끌면서 마지막까지 
+            어려운 파트가 지속된다.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="content">
+          <h3>앨범 소개</h3>
+          <img src="img/album05.png" alt="sg워너비 앨범" />
+          <div class="desc">
+            <div class="title">
+              'SG워너비' &lt;TimeLess&gt;
+            </div>
+            SG워너비의 데뷔곡이자 정규 1집 <WANNA BE+>의 타이틀곡으로, 미디엄템포 발라드 유행의 중심에 있었다.
+
+            김용준 파트가 아예 없어서 라이브로 부를 땐 김진호의 파트 일부를 김용준과 나눠 부른다.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="content">
+          <h3>앨범 소개</h3>
+          <img src="img/album06.png" alt="정동하 앨범" />
+          <div class="desc">
+            <div class="title">
+              '정동하' - &lt;추억은 만남보다 이별에 남아&gt;
+            </div>
+            '추억은 만남보다 이별에 남아'는 2021년 1월 31일에 발매된 감성적인 보컬리스트 정동하의 싱글 곡입니다.
+            추억은 만남보다 이별에 남아'는 문성욱 작사, 문성욱, 방민규 작곡의 발라드 곡으로 연인과의 이별 후 느낄 수 있는 가장 솔직한 감정을 담아낸 곡입니다.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script src="js/jquery-latest.min.js"></script>
+  <script src="js/swiper.min.js"></script>
+  <script src="js/index.js"></script>
+</body>
+
+</html>
