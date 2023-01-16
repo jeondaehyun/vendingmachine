@@ -1,3 +1,4 @@
-### Vending Machine
+### Vending Machine 
 
---이름: 앨범 자판기
+
+#이름: 앨범 자판기
